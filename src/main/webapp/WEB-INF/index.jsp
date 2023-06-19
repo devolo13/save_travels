@@ -18,42 +18,44 @@
     <script type="text/javascript" src="/js/app.js"></script>
 </head>
 <body class="container">
-    <h1 class="text-primary">Save Travels</h1>
-    <table class="table text-center d-block">
+    <h1 class="text-primary mt-4">Save Travels</h1>
+    <table class="table table-striped text-center align-middle">
         <tr>
             <th>Expense</th>
             <th>Vendor</th>
             <th>Amount</th>
+            <th>Actions</th>
         </tr>
         <tr>
-            <td>Travel charger</td>
+            <td><a href="/expenses/2">Travel Charger</a></td>
             <td>ACDC Outlets</td>
             <td>$49.95</td>
+            <td class="d-flex justify-content-evenly">
+                <a href="/expenses/edit/2" class="mt-2">edit</a>
+                <a href="/expenses/delete/2" class="btn btn-danger">delete</a>
+            </td>
         </tr>
     </table>
+    <h3 class="text-primary">Add an expense:</h3>
     <div class="container">
-        <h3 class="text-primary">Add an expense:</h3>
-<%--        add error messages--%>
-        <div class="d-flex">
             <form:form action="/test" method="post" modelAttribute="expense">
+                <form:label path="name" cssClass="mt-2">Expense Name:</form:label>
                 <form:errors path="name" cssClass="text-danger d-block"/>
-                <form:label path="name">Expense Name:</form:label>
                 <form:input type="text" path="name" cssClass="form-control"/>
+                <form:label path="vendor" cssClass="mt-2">Vendor:</form:label>
                 <form:errors path="vendor" cssClass="text-danger d-block"/>
-                <form:label path="vendor">Vendor:</form:label>
                 <form:input type="text" path="vendor" cssClass="form-control"/>
+                <form:label path="amount" cssClass="mt-2">Amount:</form:label>
                 <form:errors path="amount" cssClass="text-danger d-block"/>
-                <form:label path="amount">Amount:</form:label>
                 <form:input type="text" path="amount" cssClass="form-control"/>
+                <form:label path="description" cssClass="mt-2">Description:</form:label>
                 <form:errors path="description" cssClass="text-danger d-block"/>
-                <form:label path="description">Description:</form:label>
                 <form:textarea path="description" cssClass="form-control"/>
-                <div class="d-flex align-items-end">
+                <div class="d-flex align-items-end mt-3">
                     <button class="btn btn-primary">Submit</button>
                 </div>
             </form:form>
         </div>
-    </div>
 </body>
 </html>
 
