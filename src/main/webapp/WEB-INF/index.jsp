@@ -26,19 +26,21 @@
             <th>Amount</th>
             <th>Actions</th>
         </tr>
-        <tr>
-            <td><a href="/expenses/2">Travel Charger</a></td>
-            <td>ACDC Outlets</td>
-            <td>$49.95</td>
-            <td class="d-flex justify-content-evenly">
-                <a href="/expenses/edit/2" class="mt-2">edit</a>
-                <a href="/expenses/delete/2" class="btn btn-danger">delete</a>
-            </td>
-        </tr>
+        <c:forEach var="i" begin="0" end="${allExpenses.size() -1}">
+            <tr>
+                <td><a href="/expenses/<c:out value="${allExpenses[i].id}"/>"><c:out value="${allExpenses[i].name}"/></a></td>
+                <td><c:out value="${allExpenses[i].vendor}"/></td>
+                <td>$<c:out value="${allExpenses[i].amount}"/></td>
+                <td class="d-flex justify-content-evenly">
+                    <a href="/expenses/edit/<c:out value="${allExpenses[i].id}"/>" class="mt-2">edit</a>
+                    <a href="/expenses/delete/<c:out value="${allExpenses[i].id}"/>" class="btn btn-danger">delete</a>
+                </td>
+            </tr>
+        </c:forEach>
     </table>
     <h3 class="text-primary">Add an expense:</h3>
     <div class="container">
-            <form:form action="/test" method="post" modelAttribute="expense">
+            <form:form action="/expenses/save" method="post" modelAttribute="expense">
                 <form:label path="name" cssClass="mt-2">Expense Name:</form:label>
                 <form:errors path="name" cssClass="text-danger d-block"/>
                 <form:input type="text" path="name" cssClass="form-control"/>

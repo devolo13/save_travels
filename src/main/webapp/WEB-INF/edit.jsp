@@ -22,24 +22,28 @@
         <h1 class="text-success">Edit Expense</h1>
         <a href="/expenses" class="mt-2">Go back</a>
     </div>
-    <h2>Expense is <c:out value="${expense? expense: 'null'}"/></h2>
-<%--    <form:form action="/test" method="post" modelAttribute="expense">--%>
-<%--        <form:errors path="name" cssClass="text-danger d-block"/>--%>
-<%--        <form:label path="name">Expense Name:</form:label>--%>
-<%--        <form:input type="text" path="name" cssClass="form-control"/>--%>
-<%--        <form:errors path="vendor" cssClass="text-danger d-block"/>--%>
-<%--        <form:label path="vendor">Vendor:</form:label>--%>
-<%--        <form:input type="text" path="vendor" cssClass="form-control"/>--%>
-<%--        <form:errors path="amount" cssClass="text-danger d-block"/>--%>
-<%--        <form:label path="amount">Amount:</form:label>--%>
-<%--        <form:input type="text" path="amount" cssClass="form-control"/>--%>
-<%--        <form:errors path="description" cssClass="text-danger d-block"/>--%>
-<%--        <form:label path="description">Description:</form:label>--%>
-<%--        <form:textarea path="description" cssClass="form-control"/>--%>
-<%--        <div class="d-flex align-items-end">--%>
-<%--            <button class="btn btn-primary">Submit</button>--%>
-<%--        </div>--%>
-<%--    </form:form>--%>
+<%--    <h2>Expense is <c:out value="${expense? expense: 'null'}"/></h2>--%>
+    <form:form action="/test" method="post" modelAttribute="expense">
+        <form:errors path="name" cssClass="text-danger d-block"/>
+        <form:label path="name">Expense Name:</form:label>
+        <form:input type="text" path="name" cssClass="form-control"/>
+
+        <form:errors path="vendor" cssClass="text-danger d-block"/>
+        <form:label path="vendor">Vendor:</form:label>
+        <form:input type="text" path="vendor" cssClass="form-control"/>
+
+        <form:errors path="amount" cssClass="text-danger d-block"/>
+        <form:label path="amount">Amount:</form:label>
+        <form:input type="text" path="amount" cssClass="form-control"/>
+
+        <form:errors path="description" cssClass="text-danger d-block"/>
+        <form:label path="description">Description:</form:label>
+        <form:textarea path="description" cssClass="form-control"/>
+
+        <div class="d-flex align-items-end">
+            <button class="btn btn-primary mt-2">Submit</button>
+        </div>
+    </form:form>
 </body>
 </html>
 

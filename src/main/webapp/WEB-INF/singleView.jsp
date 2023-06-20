@@ -24,19 +24,19 @@
     </div>
     <div class="d-flex">
         <p class="col-4">Expense Name:</p>
-        <p>4 Manapua</p>
+        <p><c:out value="${expense.name}"/></p>
     </div>
     <div class="d-flex">
         <p class="col-4">Expense Description:</p>
-        <p>Wow. They are super yummy and super cheap!</p>
+        <p><c:out value="${expense.description}"/></p>
     </div>
     <div class="d-flex">
         <p class="col-4">Vendor:</p>
-        <p>Manapua Man</p>
+        <p><c:out value="${expense.vendor}"/></p>
     </div>
     <div class="d-flex">
         <p class="col-4">Amount Spent:</p>
-        <p>$8.00</p>
+        <p>$<c:out value="${expense.amount}"/></p>
     </div>
 </body>
 </html>

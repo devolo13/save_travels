@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class view {
 //    private final ExpenseService expenseService;
@@ -15,23 +17,44 @@ public class view {
     ExpenseService expenseService;
 
     @GetMapping("/expenses")
-    public String mainView(@ModelAttribute("expense") Expense expense){
+    public String mainView(Model model, @ModelAttribute("expense") Expense expense){
+        List<Expense> allExpenses = expenseService.allExpenses();
+        model.addAttribute("allExpenses", allExpenses);
         return "index.jsp";
     }
-    @PostMapping("/expenses/add")
-    public void save(){
-
+    @PostMapping("/expenses/save")
+    public String save(
+            @RequestParam("name") String name,
+            @RequestParam("vendor") String vendor,
+            @RequestParam("amount") double amount,
+            @RequestParam("description") String description
+    ){
+        Expense expense = new Expense(name, vendor, amount, description);
+        expenseService.createExpense(expense);
+        return "redirect:/expenses";
     }
-    @GetMapping("/expenses/edit/{number}")
-    public String editView(Model model, @PathVariable("number") String number){
-        Long expenseId = Long.parseLong(number);
-        Expense expense = expenseService.findexpense(expenseId);
+    @PostMapping("/expenses/update/{id}")
+    public String edit(
+            @RequestParam("name") String name,
+            @RequestParam("vendor") String vendor,
+            @RequestParam("amount") double amount,
+            @RequestParam("description") String description,
+            @PathVariable("id") long id
+    ){
+        Expense expense = new Expense(name, vendor, amount, description);
+        expenseService.createExpense(expense);
+        return "redirect:/expenses";
+    }
+    @GetMapping("/expenses/edit/{id}")
+    public String editView(Model model, @PathVariable("id") long id){
+        Expense expense = expenseService.findexpense(id);
         model.addAttribute("expense", expense);
         return "edit.jsp";
     }
-    @GetMapping("/expenses/{number}")
-    public String singleView(@PathVariable("number") String number){
-        int expenseId = Integer.parseInt(number);
+    @GetMapping("/expenses/{id}")
+    public String singleView(Model model, @PathVariable("id") long id){
+        Expense expense = expenseService.findexpense(id);
+        model.addAttribute("expense", expense);
         return "singleView.jsp";
     }
 }

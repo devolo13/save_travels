@@ -18,7 +18,7 @@ public class Expense {
     private String name;
     @NotBlank(message="Vendor cannot be blank")
     private String vendor;
-    @NotBlank(message="Amount cannot be blank")
+//    @NotBlank(message="Amount cannot be blank")
     @Min(value=0, message="amount must be a positive number")
     private double amount;
     @NotBlank(message="Description cannot be blank")

@@ -15,11 +15,11 @@ public class ExpenseService {
         this.expenseRepository = expenseRepository;
     }
     // returns all the expenses
-    public List<Expense> allBooks() {
+    public List<Expense> allExpenses() {
         return expenseRepository.findAll();
     }
     // creates an expense
-    public Expense createBook(Expense e) {
+    public Expense createExpense(Expense e) {
         return expenseRepository.save(e);
     }
     // retrieves an expense
