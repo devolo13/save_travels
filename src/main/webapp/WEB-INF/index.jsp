@@ -44,15 +44,19 @@
                 <form:label path="name" cssClass="mt-2">Expense Name:</form:label>
                 <form:errors path="name" cssClass="text-danger d-block"/>
                 <form:input type="text" path="name" cssClass="form-control"/>
+
                 <form:label path="vendor" cssClass="mt-2">Vendor:</form:label>
                 <form:errors path="vendor" cssClass="text-danger d-block"/>
                 <form:input type="text" path="vendor" cssClass="form-control"/>
+
                 <form:label path="amount" cssClass="mt-2">Amount:</form:label>
                 <form:errors path="amount" cssClass="text-danger d-block"/>
                 <form:input type="text" path="amount" cssClass="form-control"/>
+
                 <form:label path="description" cssClass="mt-2">Description:</form:label>
                 <form:errors path="description" cssClass="text-danger d-block"/>
                 <form:textarea path="description" cssClass="form-control"/>
+
                 <div class="d-flex align-items-end mt-3">
                     <button class="btn btn-primary">Submit</button>
                 </div>

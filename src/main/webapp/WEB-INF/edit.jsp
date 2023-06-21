@@ -22,8 +22,7 @@
         <h1 class="text-success">Edit Expense</h1>
         <a href="/expenses" class="mt-2">Go back</a>
     </div>
-<%--    <h2>Expense is <c:out value="${expense? expense: 'null'}"/></h2>--%>
-    <form:form action="/test" method="post" modelAttribute="expense">
+    <form:form action="/expenses/update/${expense.id}" method="post" modelAttribute="expense">
         <form:errors path="name" cssClass="text-danger d-block"/>
         <form:label path="name">Expense Name:</form:label>
         <form:input type="text" path="name" cssClass="form-control"/>
